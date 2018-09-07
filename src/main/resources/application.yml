@@ -1,0 +1,18 @@
+###svc：自定义,代表访问时的路径为项目+svc,例如http://localhost:8080/svc/访问接口 
+###book：自定义,book与svc分别代理不同的服务
+###custom-sensitive-headers:保留request的请求头
+###stripPrefix: 设为false,访问ppyun路径/svc/svc/ok
+zuul:
+  routes:
+    svc:
+      stripPrefix: false
+      url: http://svc.pptvyun.com/
+      custom-sensitive-headers: true
+    book:
+      url: http://localhost:8090/book
+ 
+ribbon:
+  eureka:
+    enabled: false
+server:
+  port: 8080
